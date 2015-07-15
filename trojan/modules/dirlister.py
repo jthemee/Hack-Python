@@ -9,6 +9,7 @@ def run(**args):
 	
 	print "[*] Dir listener module]."
 	files = os.listdir(".")
-
+	print files
 	return str(files)
 
+print "dsd"

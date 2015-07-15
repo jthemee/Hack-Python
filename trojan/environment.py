@@ -9,3 +9,5 @@ def run(**args):
 
 	print "[*] Environment module."
 	return str(os.environ)
+
+print "dsd"
