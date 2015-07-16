@@ -19,7 +19,7 @@ def handle_client(client_socket):
 	#send back the packet 
 	response = raw_input("which command command would you like to send ?\n")
 	client_socket.send(response)
-	client_socket.close()
+	#client_socket.close()
 
 while True: #loop for waiting connections
 	client,addr = server.accept()
