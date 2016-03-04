@@ -36,7 +36,7 @@ def attack():
 
 #UI creation
 fenetre = Tk()
-label = Label(fenetre,text="brute force gmail")
+label = Label(fenetre,text="Votre email ci-dessous")
 label.pack()
 
 value=StringVar()
