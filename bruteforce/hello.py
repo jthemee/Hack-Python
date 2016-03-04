@@ -36,15 +36,15 @@ def attack():
 
 #UI creation
 fenetre = Tk()
-label = Label(fenetre,text="Votre email ci-dessous")
+label = Label(fenetre,text="Etape 1 - Entrez votre email")
 label.pack()
 
 value=StringVar()
-value.set("entrez votre email")
+value.set("Etape 1 - Entrez votre email")
 entree = Entry(fenetre, textvariable='string', width=30)
 entree.pack()
 
-bouton=Button(fenetre, text="parcourir", command=attack)
+bouton=Button(fenetre, text="Etape 2 - parcourir", command=attack)
 bouton.pack()
 
 fenetre.mainloop()
