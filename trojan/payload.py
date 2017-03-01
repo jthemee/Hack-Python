@@ -7,7 +7,7 @@ import socket
 import subprocess
 
 # target
-target_host = "127.0.0.1"
+target_host = "10.94.73.1"
 target_port = 8080
 localIp = socket.gethostbyname(socket.gethostname())
 
