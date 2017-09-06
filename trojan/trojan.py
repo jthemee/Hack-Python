@@ -25,7 +25,7 @@ def handle_client(client_socket):
 		print "[*] What would you like to do ?\n"
 		print "[*] go 1 for a shell"
 		print "[*] go 2 for ..."
-		print "[*] go 2 for ..."
+		print "[*] go 3 for ..."
 		choiseTrojan = raw_input("[waiting for your choice] 1 - 2 - 3 -> ")
 		if choiseTrojan == "1":
 			#send back the packet 
